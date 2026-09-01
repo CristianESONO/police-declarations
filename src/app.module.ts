@@ -37,7 +37,7 @@ import { HistorialModule } from './historial/historial.module';
         // Mode SQLite autonome (Zero-configuration local database)
         return {
           type: 'sqlite',
-          database: 'database.sqlite',
+          database: configService.get('DB_PATH', 'database.sqlite'),
           entities: [__dirname + '/**/*.entity{.ts,.js}'],
           synchronize: true,
         };
@@ -53,4 +53,4 @@ import { HistorialModule } from './historial/historial.module';
     HistorialModule,
   ],
 })
-export class AppModule {}
+export class AppModule { }
